@@ -19,4 +19,7 @@ bin/cpp/main: cpp/main.cpp
 bin/csharp/main.dll:
 	dotnet build csharp -o bin/csharp
 
-.PHONY: run run-python run-cpp run-csharp
+watch:
+	./watch.sh "input.txt cpp/main.cpp csharp/Program.cs python/main.py" "make run"
+
+.PHONY: run run-python run-cpp run-csharp watch
