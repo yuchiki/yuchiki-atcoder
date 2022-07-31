@@ -5,3 +5,10 @@
 !/bin/csharp/.gitkeep
 
 csharp/obj/*
+
+
+csharp/Program.cs
+python/main.py
+cpp/main.cpp
+
+input.txt
