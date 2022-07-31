@@ -5,21 +5,21 @@ LANGUAGE=csharp
 run: run-$(LANGUAGE)
 
 run-python:
-	python python/main.py < input.txt
+	python python/main.py
 
 run-cpp: bin/cpp/main
-	./bin/cpp/main < input.txt
+	./bin/cpp/main
 
 run-csharp: bin/csharp/csharp.dll
-	dotnet ./bin/csharp/csharp.dll < input.txt
+	dotnet ./bin/csharp/csharp.dll
 
 bin/cpp/main: cpp/main.cpp
-	g++ cpp/main.cpp -o bin/cpp/main
+	g++ cpp/main.cpp -o bin/cpp/main 1>&2
 
 bin/csharp/csharp.dll: csharp/Program.cs
-	dotnet build csharp -o bin/csharp
+	dotnet build csharp -o bin/csharp 1>&2
 
 watch:
-	./watch.sh "input.txt cpp/main.cpp csharp/Program.cs python/main.py" "make run"
+	./watch.sh "testcases.txt cpp/main.cpp csharp/Program.cs python/main.py" "python execute_test.py"
 
 .PHONY: run run-python run-cpp run-csharp watch
