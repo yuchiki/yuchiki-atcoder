@@ -1,0 +1,7 @@
+/bin/cpp/*
+!/bin/cpp/.gitkeep
+
+/bin/csharp/*
+!/bin/csharp/.gitkeep
+
+csharp/obj/*
