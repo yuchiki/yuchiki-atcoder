@@ -31,14 +31,27 @@
 				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
 				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
 				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
+				"todo-tree.general.tags": [
+					"BUG",
+					"HACK",
+					"FIXME",
+					"TODO",
+					"XXX",
+					"[ ]",
+					"[x]",
+					"TEST",
+					"CASE"
+				],
+				"todo-tree.highlights.useColourScheme": true
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"ms-dotnettools.csharp",
-				"ms-vscode.cpptools-extension-pack"
+				"ms-vscode.cpptools-extension-pack",
+				"Gruntfuggly.todo-tree"
 			]
 		}
 	},

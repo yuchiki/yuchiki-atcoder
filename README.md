@@ -1,6 +1,9 @@
 # 概要
 atcoder用のrepository
 
+
+![テストランナーの図](docs/watch-system.png)
+
 # 最初にやること
 
 - makefileの先頭の LANGUAGE を指定しろ！
