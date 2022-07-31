@@ -5,6 +5,7 @@
 !/bin/csharp/.gitkeep
 
 csharp/obj/*
+csharp/bin/*
 
 
 csharp/Program.cs
@@ -12,3 +13,5 @@ python/main.py
 cpp/main.cpp
 
 input.txt
+
+/.vscode
