@@ -3,8 +3,10 @@
 from colorama import Fore, Style
 import subprocess
 from enum import Enum
-from typing import Optional, List
+from typing import Dict, Optional, List
 from dataclasses import dataclass
+
+from yaml import YAMLObject
 
 
 class TestStatus(Enum):
@@ -36,11 +38,18 @@ class TestResult:
 
 
 @dataclass
-class TestCase:
+class TestCase(YAMLObject):
     """テストケース"""
     name: str
     given: str
     expected: Optional[str]
+
+    def to_dict(self) -> Dict[str, str]:
+        return {
+            "name": self.name,
+            "given": self.given,
+            "expected": self.expected
+        }
 
     def execute(self) -> TestResult:
         """テストを実行して結果を返します"""
