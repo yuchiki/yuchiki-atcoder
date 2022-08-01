@@ -47,9 +47,16 @@ class TestCase(YAMLObject):
     def to_dict(self) -> Dict[str, str]:
         return {
             "name": self.name,
-            "given": self.given,
+            "input": self.given,
             "expected": self.expected
         }
+
+    @classmethod
+    def from_dict(cls, test_case_dict: Dict[str, str]) -> 'TestCase':
+        return TestCase(
+            test_case_dict['name'],
+            test_case_dict['input'] + "\n",
+            test_case_dict['expected'] + "\n" if 'expected' in test_case_dict else None)
 
     def execute(self) -> TestResult:
         """テストを実行して結果を返します"""

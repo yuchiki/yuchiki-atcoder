@@ -1,9 +1,6 @@
 - name: case-1
-  given: 1 5 2
-  expected: '53'
+  input: 3 4
+  expected: Even
 - name: case-2
-  given: 9 9 9
-  expected: '108'
-- name: case-3
-  given: 6 6 7
-  expected: '82'
+  input: 1 21
+  expected: Odd

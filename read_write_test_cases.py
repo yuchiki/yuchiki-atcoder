@@ -14,3 +14,9 @@ def write_test_cases(test_cases: List[TestCase], filename: str):
 
     with open(filename, "w") as file:
         yaml.dump(test_cases, file, sort_keys=False)
+
+
+def read_test_cases(filename: str) -> List[TestCase]:
+    with open(filename) as file:
+        objects = yaml.safe_load(file)
+        return [TestCase.from_dict(object) for object in objects]

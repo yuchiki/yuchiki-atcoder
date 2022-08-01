@@ -1,4 +1,4 @@
-from write_test_cases import write_test_cases
+from read_write_test_cases import write_test_cases
 from atcoder_repository import AtCoderRepository
 import sys
 
