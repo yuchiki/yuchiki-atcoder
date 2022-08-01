@@ -6,59 +6,7 @@ from typing import Optional, List
 from enum import Enum
 import subprocess
 from colorama import Fore, Style
-
-
-class TestStatus(Enum):
-    AC = 1
-    WA = 2
-    ERROR = 3
-    JUSTSHOW = 4
-
-
-@dataclass
-class TestResult:
-    name: str
-    status: TestStatus
-    actual: str
-    error: str
-    expected: Optional[str] = None
-
-
-def dye(message: str, color: Fore) -> str:
-    return color + message + Style.RESET_ALL
-
-
-def dye_status(status: TestStatus) -> str:
-    table = {TestStatus.AC: Fore.GREEN,
-             TestStatus.WA: Fore.YELLOW,
-             TestStatus.ERROR: Fore.RED,
-             TestStatus.JUSTSHOW: Fore.BLUE}
-
-    return dye(status.name, table[status])
-
-
-@dataclass
-class TestCase:
-    """テストケース"""
-    name: str
-    given: str
-    expected: Optional[str]
-
-    def execute(self) -> TestResult:
-        """テストを実行して結果を返します"""
-        completed_process = subprocess.run(
-            ["make", "-s", "run"], input=self.given, text=True, capture_output=True)
-
-        if completed_process.returncode != 0:
-            return TestResult(self.name, TestStatus.ERROR, actual=completed_process.stdout, error=completed_process.stderr)
-
-        if self.expected is None:
-            return TestResult(self.name, TestStatus.JUSTSHOW, actual=completed_process.stdout, error="")
-
-        if self.expected == completed_process.stdout:
-            return TestResult(self.name, TestStatus.AC, actual=completed_process.stdout, error="")
-        else:
-            return TestResult(self.name, TestStatus.WA, actual=completed_process.stdout, expected=self.expected, error="")
+from test_case import TestCase, TestStatus, TestResult
 
 
 class TestCaseSuitParser:
@@ -143,7 +91,7 @@ def execute_and_show(test_cases: List[TestCase]) -> List[TestResult]:
     for test_case in test_cases:
         print("-----------------------------------")
         result = test_case.execute()
-        print(f"{test_case.name:<15}: {dye_status(result.status)}")
+        print(f"{test_case.name:<15}: {result.status.dyed}")
         results.append(result)
 
         if result.status == TestStatus.JUSTSHOW:
@@ -164,7 +112,7 @@ def show_summary(results: List[TestResult]):
     print("========================================")
     print("SUMMARY:")
     for result in results:
-        print(f"{result.name:<15}: {dye_status(result.status)}")
+        print(f"{result.name:<15}: {result.status.dyed}")
 
 
 def main():

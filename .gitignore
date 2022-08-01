@@ -15,3 +15,5 @@ cpp/main.cpp
 testcases.txt
 
 /.vscode
+
+__pycache__
