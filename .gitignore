@@ -17,3 +17,5 @@ testcases.txt
 /.vscode
 
 __pycache__
+
+session/session_dump.pkl
