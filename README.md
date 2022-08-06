@@ -7,6 +7,7 @@ atcoder用のrepository
 # 最初にやること
 
 - makefileの先頭の LANGUAGE を指定しろ！
+- `python atcoder-ctl/fetch_task.py abc162 b` などのようにして、テストケースをfetchして来よう。
 - make watch をたたいて watch modeをオンにしろ！
     - watch modeとは？？？
         - ソースコードとテストケースの変更を検知して、testcases.txtに書かれたテストケースを都度走らせてくれるモードです
@@ -17,8 +18,7 @@ cpp/main.cpp か
 csharp/Program.cs か
 python/main.py
 
-# テストケースを書くところ
-
+# テストケース
 testcases.txt
 
 以下の形式で書いてください。
