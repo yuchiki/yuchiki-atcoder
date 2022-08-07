@@ -1,13 +1,9 @@
 """テストケースを実行するスクリプト"""
 
-from dataclasses import dataclass
 from textwrap import indent
-from typing import Optional, List
-from enum import Enum
-import subprocess
-from colorama import Fore, Style
-from test_case import TestCase, TestStatus, TestResult
-from read_write_test_cases import read_test_cases, write_test_cases
+from typing import List
+from ..models.test_case import TestCase, TestStatus, TestResult
+from ..repositories.test_case import TestCaseRepository
 
 
 def execute_and_show(test_cases: List[TestCase]) -> List[TestResult]:
@@ -40,7 +36,9 @@ def show_summary(results: List[TestResult]):
 
 
 def main():
-    test_cases = read_test_cases("testcases.yaml")
+    test_case_repo = TestCaseRepository("testcases.yaml")
+
+    test_cases = test_case_repo.read()
     results = execute_and_show(test_cases)
     show_summary(results)
 

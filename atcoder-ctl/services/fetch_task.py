@@ -1,5 +1,5 @@
-from read_write_test_cases import write_test_cases
-from atcoder_repository import AtCoderRepository
+from ..repositories.test_case import TestCaseRepository
+from ..repositories.atcoder import AtCoderRepository
 import sys
 
 
@@ -9,9 +9,12 @@ def main():
     task = args[2]
 
     atcoder_repo = AtCoderRepository("session/session_dump.pkl")
+    test_case_repo = TestCaseRepository("testcases.yaml")
+
     test_cases = [case.to_dict()
                   for case in atcoder_repo.fetch_test_cases(contest, task)]
-    write_test_cases(test_cases, "testcases.yaml")
+
+    test_case_repo.write(test_cases)
 
 
 main()
