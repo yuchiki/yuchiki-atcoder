@@ -9,7 +9,7 @@ import pickle
 import os
 from bs4 import BeautifulSoup
 
-from..models.test_case import TestCase
+from atcoder_ctl.models.test_case import TestCase
 
 
 class AlreadyLoggedIn(Exception):

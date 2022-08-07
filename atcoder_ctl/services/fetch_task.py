@@ -1,5 +1,5 @@
-from ..repositories.test_case import TestCaseRepository
-from ..repositories.atcoder import AtCoderRepository
+from atcoder_ctl.repositories.test_case import TestCaseRepository
+from atcoder_ctl.repositories.atcoder import AtCoderRepository
 import sys
 
 

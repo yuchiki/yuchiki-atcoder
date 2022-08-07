@@ -2,8 +2,8 @@
 
 from textwrap import indent
 from typing import List
-from ..models.test_case import TestCase, TestStatus, TestResult
-from ..repositories.test_case import TestCaseRepository
+from atcoder_ctl.models.test_case import TestCase, TestStatus, TestResult
+from atcoder_ctl.repositories.test_case import TestCaseRepository
 
 
 def execute_and_show(test_cases: List[TestCase]) -> List[TestResult]:

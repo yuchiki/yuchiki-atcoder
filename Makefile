@@ -20,6 +20,6 @@ bin/csharp/csharp.dll: csharp/Program.cs
 	dotnet build csharp -o bin/csharp 1>&2
 
 watch:
-	./watch.sh "testcases.yaml cpp/main.cpp csharp/Program.cs python/main.py" "python -m atcoder-ctl.scripts.main exec"
+	./watch.sh "testcases.yaml cpp/main.cpp csharp/Program.cs python/main.py" "python -m atcoder_ctl.scripts.main exec"
 
 .PHONY: run run-python run-cpp run-csharp watch

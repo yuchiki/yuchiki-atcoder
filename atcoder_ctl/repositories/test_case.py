@@ -1,5 +1,5 @@
 import yaml
-from ..models.test_case import TestCase
+from atcoder_ctl.models.test_case import TestCase
 from typing import List
 
 
