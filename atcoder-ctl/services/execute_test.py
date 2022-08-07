@@ -35,7 +35,7 @@ def show_summary(results: List[TestResult]):
         print(f"{result.name:<15}: {result.status.dyed}")
 
 
-def main():
+def execute_test():
     test_case_repo = TestCaseRepository("testcases.yaml")
 
     test_cases = test_case_repo.read()
@@ -43,4 +43,5 @@ def main():
     show_summary(results)
 
 
-main()
+if __name__ == '__main__':
+    execute_test()

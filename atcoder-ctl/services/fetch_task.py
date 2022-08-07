@@ -3,11 +3,7 @@ from ..repositories.atcoder import AtCoderRepository
 import sys
 
 
-def main():
-    args = sys.argv
-    contest = args[1]
-    task = args[2]
-
+def fetch_task(contest: str, task: str):
     atcoder_repo = AtCoderRepository("session/session_dump.pkl")
     test_case_repo = TestCaseRepository("testcases.yaml")
 
@@ -17,4 +13,5 @@ def main():
     test_case_repo.write(test_cases)
 
 
-main()
+if __name__ == '__main__':
+    fetch_task(sys.argv[1], sys.argv[2])
